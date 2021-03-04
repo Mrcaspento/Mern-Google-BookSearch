@@ -8,25 +8,21 @@ import {
   BrowserRouter,
   useRouteMatch,
   useParams,
+  Redirect,
+  useHistory,
+  useLocation,
 } from "react-router-dom";
 import "./App.css";
 import home from "./pages/home";
+import Books from "./pages/books";
 
 function App() {
   return (
     <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <Nav />
         <Switch>
-          <Route exact path="/" component={Books}></Route>
+          <Route exact path="/" component={home}></Route>
+          <Route exact path="/books" component={Books}></Route>
         </Switch>
       </div>
     </Router>
