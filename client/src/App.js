@@ -1,19 +1,35 @@
 import React, {Component} from "react";
 import logo from "./logo.svg";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  BrowserRouter,
+  useRouteMatch,
+  useParams,
+} from "react-router-dom";
 import "./App.css";
+import home from "./pages/home";
 
 function App() {
   return (
-    <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to React</h2>
+    <Router>
+      <div>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+        </ul>
       </div>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
-    </div>
+
+      <div>
+        <Nav />
+        <Switch>
+          <Route exact path="/" component={Books}></Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
